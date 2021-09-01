@@ -51,7 +51,7 @@ public struct Line: View {
             }
 			
             .gesture(
-                style.interactive ?
+                style.draggable ?
                     DragGesture()
                         .onChanged({ value in
                             self.touchLocation = value.location

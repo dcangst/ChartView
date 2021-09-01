@@ -8,46 +8,46 @@ public class ChartStyle: ObservableObject {
 	/// colors for foreground fill of chart
     public let foregroundColor: [ColorGradient]
 
-		public let interactive: Bool
+		public var draggable: Bool
 
 	/// Initialize with a single background color and an array of `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: [ColorGradient], interactive: Bool) {
+    public init(backgroundColor: Color, foregroundColor: [ColorGradient], interactive: Bool = true) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = foregroundColor
-				self.interactive = interactive
+				self.draggable = interactive
     }
 
 	/// Initialize with a single background color and a single `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: ColorGradient, interactive: Bool) {
+    public init(backgroundColor: Color, foregroundColor: ColorGradient, interactive: Bool = true) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = [foregroundColor]
-				self.interactive = interactive
+				self.draggable = interactive
     }
 
 	/// Initialize with a single background `ColorGradient` and a single `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient, interactive: Bool) {
+    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient, interactive: Bool = true) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = [foregroundColor]
-				self.interactive = interactive
+				self.draggable = interactive
     }
 
 	/// Initialize with a  single background `ColorGradient` and an array of `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient], interactive: Bool) {
+    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient], interactive: Bool = true) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
-				self.interactive = interactive
+				self.draggable = interactive
     }
     
 }
