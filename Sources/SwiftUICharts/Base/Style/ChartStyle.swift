@@ -4,44 +4,50 @@ import SwiftUI
 public class ChartStyle: ObservableObject {
 
 	/// colors for background are of chart
-	public let backgroundColor: ColorGradient
+		public let backgroundColor: ColorGradient
 	/// colors for foreground fill of chart
     public let foregroundColor: [ColorGradient]
+
+		public let interactive: bool
 
 	/// Initialize with a single background color and an array of `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: [ColorGradient]) {
+    public init(backgroundColor: Color, foregroundColor: [ColorGradient], interactice: Bool) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = foregroundColor
+				self.interactive = interactive
     }
 
 	/// Initialize with a single background color and a single `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: ColorGradient) {
+    public init(backgroundColor: Color, foregroundColor: ColorGradient, interactice: Bool) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = [foregroundColor]
+				self.interactive = interactive
     }
 
 	/// Initialize with a single background `ColorGradient` and a single `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient) {
+    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient, interactice: Bool) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = [foregroundColor]
+				self.interactive = interactive
     }
 
 	/// Initialize with a  single background `ColorGradient` and an array of `ColorGradient` for the foreground
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient]) {
+    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient], interactice: Bool) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
+				self.interactive = interactive
     }
     
 }

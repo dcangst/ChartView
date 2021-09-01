@@ -50,18 +50,21 @@ public struct Line: View {
                 didCellAppear = false
             }
 			
-            .gesture(DragGesture()
-                .onChanged({ value in
-                    self.touchLocation = value.location
-                    self.showIndicator = true
-                    self.getClosestDataPoint(geometry: geometry, touchLocation: value.location)
-                    self.chartValue.interactionInProgress = true
-                })
-                .onEnded({ value in
-                    self.touchLocation = .zero
-                    self.showIndicator = false
-                    self.chartValue.interactionInProgress = false
-                })
+            .gesture(
+                style.interactive ?
+                    DragGesture()
+                        .onChanged({ value in
+                            self.touchLocation = value.location
+                            self.showIndicator = true
+                            self.getClosestDataPoint(geometry: geometry, touchLocation: value.location)
+                            self.chartValue.interactionInProgress = true
+                        })
+                        .onEnded({ value in
+                            self.touchLocation = .zero
+                            self.showIndicator = false
+                            self.chartValue.interactionInProgress = false
+                        })
+                    : nil
             )
         }
     }
