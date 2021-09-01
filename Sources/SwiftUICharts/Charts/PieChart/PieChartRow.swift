@@ -4,9 +4,9 @@ import SwiftUI
 public struct PieChartRow: View {
     @ObservedObject var chartData: ChartData
     @EnvironmentObject var chartValue: ChartValue
-
+    
     var style: ChartStyle
-
+    
     var slices: [PieSlice] {
         var tempSlices: [PieSlice] = []
         var lastEndDeg: Double = 0
@@ -22,7 +22,7 @@ public struct PieChartRow: View {
         
         return tempSlices
     }
-
+    
     @State private var currentTouchedIndex = -1 {
         didSet {
             if oldValue != currentTouchedIndex {
@@ -32,7 +32,7 @@ public struct PieChartRow: View {
             }
         }
     }
-
+    
     public var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -49,20 +49,23 @@ public struct PieChartRow: View {
                     .animation(Animation.spring())
                 }
             }
-            .gesture(DragGesture()
-                        .onChanged({ value in
-                            let rect = geometry.frame(in: .local)
-                            let isTouchInPie = isPointInCircle(point: value.location, circleRect: rect)
-                            if isTouchInPie {
-                                let touchDegree = degree(for: value.location, inCircleRect: rect)
-                                currentTouchedIndex = slices.firstIndex(where: { $0.startDeg < touchDegree && $0.endDeg > touchDegree }) ?? -1
-                            } else {
-                                currentTouchedIndex = -1
-                            }
-                        })
-                        .onEnded({ value in
+            .gesture(
+                style.draggable ?
+                    DragGesture()
+                    .onChanged({ value in
+                        let rect = geometry.frame(in: .local)
+                        let isTouchInPie = isPointInCircle(point: value.location, circleRect: rect)
+                        if isTouchInPie {
+                            let touchDegree = degree(for: value.location, inCircleRect: rect)
+                            currentTouchedIndex = slices.firstIndex(where: { $0.startDeg < touchDegree && $0.endDeg > touchDegree }) ?? -1
+                        } else {
                             currentTouchedIndex = -1
-                        })
+                        }
+                    })
+                    .onEnded({ value in
+                        currentTouchedIndex = -1
+                    })
+                    : nil
             )
         }
     }
