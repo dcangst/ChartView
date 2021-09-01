@@ -9,7 +9,7 @@ struct LineBackgroundShapeView: View {
         LineBackgroundShape(data: chartData.normalisedPoints)
             .transform(CGAffineTransform(scaleX: geometry.size.width / CGFloat(chartData.normalisedPoints.count - 1),
                                          y: geometry.size.height / CGFloat(chartData.normalisedRange)))
-            .fill(LinearGradient(gradient: style.foregroundColor.first!.gradient,
+            .fill(LinearGradient(gradient: style.backgroundColor.first!.gradient,
                                  startPoint: .bottom,
                                  endPoint: .top))
             .rotationEffect(.degrees(180), anchor: .center)
