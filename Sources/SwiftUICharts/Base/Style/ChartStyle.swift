@@ -14,7 +14,7 @@ public class ChartStyle: ObservableObject {
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: [ColorGradient], interactice: Bool) {
+    public init(backgroundColor: Color, foregroundColor: [ColorGradient], interactive: Bool) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = foregroundColor
 				self.interactive = interactive
@@ -24,7 +24,7 @@ public class ChartStyle: ObservableObject {
 	/// - Parameters:
 	///   - backgroundColor: a `Color`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: Color, foregroundColor: ColorGradient, interactice: Bool) {
+    public init(backgroundColor: Color, foregroundColor: ColorGradient, interactive: Bool) {
         self.backgroundColor = ColorGradient.init(backgroundColor)
         self.foregroundColor = [foregroundColor]
 				self.interactive = interactive
@@ -34,7 +34,7 @@ public class ChartStyle: ObservableObject {
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: a `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient, interactice: Bool) {
+    public init(backgroundColor: ColorGradient, foregroundColor: ColorGradient, interactive: Bool) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = [foregroundColor]
 				self.interactive = interactive
@@ -44,7 +44,7 @@ public class ChartStyle: ObservableObject {
 	/// - Parameters:
 	///   - backgroundColor: a `ColorGradient`
 	///   - foregroundColor: array of `ColorGradient`
-    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient], interactice: Bool) {
+    public init(backgroundColor: ColorGradient, foregroundColor: [ColorGradient], interactive: Bool) {
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
 				self.interactive = interactive
