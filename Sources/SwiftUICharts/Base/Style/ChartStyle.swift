@@ -8,7 +8,7 @@ public class ChartStyle: ObservableObject {
 	/// colors for foreground fill of chart
     public let foregroundColor: [ColorGradient]
 
-		public let interactive: bool
+		public let interactive: Bool
 
 	/// Initialize with a single background color and an array of `ColorGradient` for the foreground
 	/// - Parameters:
